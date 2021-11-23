@@ -29,11 +29,12 @@ class Trapdoor:
         self.config_filepath = os.path.join(self.store_directory, config_filename)
         self.configfile = configfile.ConfigFile(self.config_filepath)
 
-    def set(self, key: str, value: str, section: Optional[str] = None):
-        if not section:
-            section = self.store_name
+    def set(self, key: str, value: str):
+        self.configfile.set(key, value)
+        self.configfile.sync_updated_at()
 
-        self.configfile.set(section, key, value)
+    def get(self, key: str):
+        return self.configfile.get(key)
 
     def _expand_store_directory(self):
         if not isinstance(self.store_directory, str):
