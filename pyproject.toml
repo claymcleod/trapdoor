@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trapdoor"
-version = "0.2.0"
+version = "0.2.1"
 description = "Turn-key configuration file management for Python packages."
 authors = ["Clay McLeod <clay.l.mcleod@gmail.com>"]
 license = "MIT"
