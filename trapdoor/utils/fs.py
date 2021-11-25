@@ -1,7 +1,8 @@
 import os
-from stat import ST_MODE
 
-def ensure_directory_exists(directory: str, mode=0o700):
+def ensure_directory_exists(directory: str, mode: int = 0o700):
+    directory = os.path.expanduser(directory)
+
     if not os.path.exists(directory):
         os.makedirs(directory, mode)
 

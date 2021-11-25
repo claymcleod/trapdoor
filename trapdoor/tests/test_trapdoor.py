@@ -1,10 +1,10 @@
 import os
-import pytest
+import pytest # type: ignore
 import toml
 from datetime import datetime
 
-from trapdoor import selectors
-from .. import fs, trapdoor
+from ..utils import fs
+from .. import trapdoor
 
 def test_initialization_works_out_of_the_box():
     store_name = "trapdoor_test"

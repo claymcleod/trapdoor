@@ -1,9 +1,8 @@
 import os
 from typing import Any, Dict
-
-from . import selectors
 from datetime import datetime
 
+from .utils import selectors
 import toml
 
 CREATED_AT_KEY = "meta.created-at"
@@ -33,6 +32,10 @@ class ConfigFile:
         self._load_from_file()
         return self.selector.select(key, self.contents)
 
+    def sync_updated_at(self):
+        self.set(UPDATED_AT_KEY, datetime.now())
+        self._dump_to_file()
+
     def _load_default_contents(self):
         now = datetime.now()
         self.set(CREATED_AT_KEY, now)
@@ -45,7 +48,3 @@ class ConfigFile:
     def _dump_to_file(self):
         with open(self.filepath, mode="w", encoding="utf-8") as f:
             toml.dump(self.contents, f)
-
-    def sync_updated_at(self):
-        self.set(UPDATED_AT_KEY, datetime.now())
-        self._dump_to_file()

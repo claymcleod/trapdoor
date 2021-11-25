@@ -1,6 +1,7 @@
 import os
 import shutil
-from . import configfile, fs
+from . import configfile
+from .utils import fs
 from typing import Optional
 
 
