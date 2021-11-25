@@ -13,3 +13,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          committer-name: "Clay McLeod"
+          committer-email: "clay.l.mcleod@gmail.com"
