@@ -19,3 +19,12 @@ python-semantic-release = "^7.22.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+build_command = "poetry build"
+commit_author = "Clay McLeod <clay.l.mcleod@gmail.com>"
+commit_message = ""
+commit_subject = "chore: bumping version to v{version}"
+upload_to_release = "false"
+version_source = "commit"
+version_variable = "pyproject.toml:version"
