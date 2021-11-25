@@ -16,4 +16,4 @@ jobs:
       - name: Install Dependencies
         run: poetry install
       - name: Run Tests
-        run: poetry run pytest --doctest-modules --verbose
+        run: poetry run pytest --doctest-modules --doctest-glob="docs/**/*.rst" --verbose
