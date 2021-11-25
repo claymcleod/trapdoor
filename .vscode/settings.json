@@ -1,5 +1,6 @@
 {
     "python.linting.banditEnabled": false,
     "python.linting.mypyEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "autoDocstring.docstringFormat": "sphinx"
 }
