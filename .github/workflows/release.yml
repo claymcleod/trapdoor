@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: stjudecloud/release-python-action@v1
+        uses: stjudecloud/release-python-action@v1.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           committer-name: "Clay McLeod"
           committer-email: "clay.l.mcleod@gmail.com"
+          run-pytest: true
