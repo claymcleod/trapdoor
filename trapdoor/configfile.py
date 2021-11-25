@@ -1,8 +1,10 @@
 import os
-import toml
+from typing import Any, Dict
 
 from . import selectors
 from datetime import datetime
+
+import toml
 
 CREATED_AT_KEY = "meta.created-at"
 UPDATED_AT_KEY = "meta.updated-at"
@@ -10,10 +12,12 @@ UPDATED_AT_KEY = "meta.updated-at"
 class ConfigFile:
 
     def __init__(self, 
-        filepath: str
+        filepath: str,
+        selector_split_character: str = "."
     ):
-        self.contents = {}
+        self.contents: Dict[Any, Any] = {}
         self.filepath = filepath
+        self.selector = selectors.Selector(selector_split_character)
 
         if not os.path.exists(self.filepath):
             self._load_default_contents()
@@ -22,12 +26,12 @@ class ConfigFile:
             self._load_from_file()
     
     def set(self, key: str, value: str):
-        selectors.update_from_selector(self.contents, key, value)
+        self.selector.update_from(key, value, self.contents)
         self._dump_to_file()
 
     def get(self, key: str):
         self._load_from_file()
-        return selectors.select(self.contents, key)
+        return self.selector.select(key, self.contents)
 
     def _load_default_contents(self):
         now = datetime.now()
