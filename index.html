@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Trapdoor Documentation &#8212; Trapdoor 0.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="trapdoor-documentation">
+<h1>Trapdoor Documentation<a class="headerlink" href="#trapdoor-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Trapdoor is billed as a “turn-key configuration file management for Python packages”.
+It’s intended to be a simple, plug-and-play system for creating, manipulating, and
+reading configuration for your Python command line tool. Because the project values
+simplicity, not all use-cases will be implemented.</p>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The simplest usage of Trapdoor is just to initialize a Trapdoor instance with a
+store name (here, we use “trapdoor-test”, which will create a config file at
+<code class="code docutils literal notranslate"><span class="pre">~/.trapdoor-test/config.toml</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trapdoor</span> <span class="kn">import</span> <span class="n">Trapdoor</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Trapdoor</span><span class="p">(</span><span class="s1">&#39;trapdoor-test&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;some.nested.key.hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create a configuration TOML file at <code class="code docutils literal notranslate"><span class="pre">~/.trapdoor-test/config.toml</span></code> with
+the following contents:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[meta]</span>
+<span class="n">created-at</span> <span class="o">=</span> <span class="mi">2021-11-22</span><span class="n">T23</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mf">58.762331</span>
+<span class="n">updated-at</span> <span class="o">=</span> <span class="mi">2021-11-22</span><span class="n">T23</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mf">59.252702</span>
+
+<span class="k">[some.nested.key]</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Trapdoor</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Clay McLeod.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
