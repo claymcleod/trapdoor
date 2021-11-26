@@ -4,11 +4,11 @@ import toml
 from datetime import datetime
 
 from ..utils import fs
-from .. import trapdoor
+from ..trapdoor import Trapdoor
 
 def test_initialization_works_out_of_the_box():
     store_name = "trapdoor_test"
-    inst = trapdoor.Trapdoor(store_name, testing=True)
+    inst = Trapdoor(store_name, testing=True)
     expected_store_directory = os.path.expanduser(os.path.join("~", "." + store_name))
     assert inst.store_name == store_name
     assert inst.store_directory == expected_store_directory
@@ -37,11 +37,11 @@ def test_initialization_works_out_of_the_box():
 def test_expand_store_fails_on_no_str():
     store_name = "trapdoor_test"
     with pytest.raises(ValueError, match="`store_directory` is not a string!"):
-        trapdoor.Trapdoor(store_name, 12)
+        Trapdoor(store_name, 12)
 
 def test_repr_matches_expected():
     store_name = "trapdoor_test"
-    inst = trapdoor.Trapdoor(store_name, testing=True)
+    inst = Trapdoor(store_name, testing=True)
     expected_store_directory = os.path.expanduser(os.path.join("~", "." + store_name))
     assert str(inst) == f"(Store name: {store_name}, Store directory: {expected_store_directory})"
     inst._cleanup()

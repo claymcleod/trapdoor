@@ -73,7 +73,7 @@ If you're interested in a complete overview of trapdoor's capabilities, please s
 
 ```python
 # import trapdoor
-from trapdoor.trapdoor import Trapdoor
+from trapdoor import Trapdoor
 
 t = Trapdoor('trapdoor-test')           # create a store at ~/.trapdoor-test/config.yml (by default)
 t.set('some.nested.key.hello', 'world') # set a key in the configuration file
