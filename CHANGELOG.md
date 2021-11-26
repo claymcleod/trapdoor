@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.1 (2021-11-26)
+### Fix
+* Fixes import of trapdoor into top-level module ([`b7ab074`](https://github.com/claymcleod/trapdoor/commit/b7ab074935493706e48b0665028f4734bdfd6a2b))
+
 ## v0.4.0 (2021-11-26)
 ### Feature
 * Fills out the configfile module ([`f168fe8`](https://github.com/claymcleod/trapdoor/commit/f168fe8fe3e8d89faf62f364e2117daf4300a0a6))
