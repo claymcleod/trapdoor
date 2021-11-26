@@ -1,1 +1,1 @@
-from trapdoor import *
+from .trapdoor import *
