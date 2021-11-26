@@ -10,6 +10,18 @@ def ensure_directory_exists(directory: str, mode: int = 0o700):
     :param mode: Permissions for the directory, defaults to 0o700
     :type mode: int, optional
     :raises RuntimeError: The path exists, but it's not a directory.
+    
+    >>> import os
+    >>> import tempfile
+    >>> tempdir = tempfile.mkdtemp()
+    >>> test_dir_path = os.path.join(tempdir, "test")
+    >>> ensure_directory_exists(test_dir_path)
+    >>> get_file_permissions(test_dir_path)
+    700
+    >>> test_dir_path2 = os.path.join(tempdir, "test_two")
+    >>> ensure_directory_exists(test_dir_path2, 0o777)
+    >>> get_file_permissions(test_dir_path2)
+    777
     """
     directory = os.path.expanduser(directory)
 
