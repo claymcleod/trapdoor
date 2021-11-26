@@ -18,6 +18,7 @@ store name (here, we use "trapdoor-test", which will create a config file at
    >>> from trapdoor import Trapdoor
    >>> t = Trapdoor('trapdoor-test')
    >>> t.set('some.nested.key.hello', 'world')
+   {...}
    >>> t.get('some.nested.key.hello')
    'world'
 

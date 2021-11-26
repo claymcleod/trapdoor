@@ -1,5 +1,5 @@
 import os
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from datetime import datetime
 
 from .utils import selectors
@@ -33,6 +33,7 @@ class ConfigFile:
         >>> c.get('meta.created-at')
         datetime...
         >>> c.set('hello.world.test', 'key')
+        {'meta': {'created-at': ..., 'updated-at': ..., 'hello': {'world': {'test': 'key'}}}
         >>> c.get('hello.world.test')
         'key'
         """
@@ -47,25 +48,30 @@ class ConfigFile:
         else:
             self._load_from_file()
     
-    def set(self, selector: str, value: str):
+    def set(self, selector: str, value: str) -> Dict:
         """Sets a key using the defined `selector` to the specified
-        `value`.
+        `value` and syncs the value with the store on disk.
 
         :param selector: Key path to set the value for.
         :type selector: str
         :param value: Value to set.
         :type value: str
+        :return: The new dictionary with the updated value.
+        :rtype: Dict
         """
-        self.selector.update_from(selector, value, self.contents)
+        d = self.selector.update_from(selector, value, self.contents)
         self._dump_to_file()
+        return d
 
-    def get(self, selector: str) -> Any:
-        """Gets a key from the store as defined by the `selector`.
+    def get(self, selector: str) -> Optional[Any]:
+        """Reloads the store from disk and gets a key 
+        as defined by the `selector`.
 
         :param selector: Key to retrieve from the store.
         :type selector: str
-        :return: Value from the store for the key.
-        :rtype: Any
+        :return: Value from the store for the key. If that key does not exist,
+                 then `None` is returned.
+        :rtype: Optional[Any]
         """
         self._load_from_file()
         return self.selector.select(selector, self.contents)

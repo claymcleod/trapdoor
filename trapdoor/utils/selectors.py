@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 class Selector:
 
@@ -33,7 +33,7 @@ class Selector:
         subkey = hierarchy.pop()
         return hierarchy, subkey
 
-    def select(self, selector: str, d: Dict) -> Any:
+    def select(self, selector: str, d: Dict) -> Optional[Any]:
         """Selects a value from a nested dictionary using the provided `selector`.
 
         :param selector: The selector to use to look up the value.
@@ -41,17 +41,16 @@ class Selector:
         :param d: The dictionary to look up the value within.
         :type d: Dict
         :raises KeyError: If any of the keys are not found in the dict. 
-        :return: The returned value.
-        :rtype: Any
+        :return: If available, the value returned by the selector. Else None.
+        :rtype: Optional[Any]
 
         >>> Selector().select("test", {"test": "world"})
         'world'
         >>> Selector().select("test.meta.key", {"test": {"meta": {"key": "value"}}})
         'value'
-        >>> Selector().select("test.meta.hello", {"test": {"meta": {"key": "value"}}})
-        Traceback (most recent call last):
-        ...
-        KeyError: "Key 'hello' not found in dict for selector 'test.meta.hello'."
+        >>> result = Selector().select("test.meta.wrong-key", {"test": {"meta": {"key": "value"}}})
+        >>> result is None
+        True
         """
 
         hierarchy, subkey = self.split(selector)
@@ -60,10 +59,10 @@ class Selector:
             key = hierarchy.pop(0)
             result = result.get(key)
             if not result:
-                raise KeyError(f"Key '{key}' not found in dict for selector '{selector}'.")
+                return None
         
         if not subkey in result:
-            raise KeyError(f"Key '{subkey}' not found in dict for selector '{selector}'.") 
+            return None
         return result.get(subkey)
 
     def dict_from(self, selector: str, value: Any) -> Dict:
