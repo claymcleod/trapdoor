@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2021-11-27)
+### Feature
+* Extends return types of get and set, cleans up trapdoor module ([`6649e51`](https://github.com/claymcleod/trapdoor/commit/6649e5164361b8902268090c3b9800895babd581))
+
 ## v0.4.1 (2021-11-26)
 ### Fix
 * Fixes import of trapdoor into top-level module ([`b7ab074`](https://github.com/claymcleod/trapdoor/commit/b7ab074935493706e48b0665028f4734bdfd6a2b))
