@@ -33,7 +33,7 @@ jobs:
     if: github.ref == 'refs/heads/main' # only run for main branch
     steps:
       - name: Checkout Repository
-        uses: stjudecloud/release-python-action@v1.1.0
+        uses: stjudecloud/release-python-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
