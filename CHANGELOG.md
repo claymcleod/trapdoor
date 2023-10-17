@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2023-10-17)
+
+### Feature
+
+* Allows >= Python 3.7 ([`af746cd`](https://github.com/claymcleod/trapdoor/commit/af746cd8b7ec5c526e20f4f288d60b8900dd99d4))
+
 ## v0.5.0 (2021-11-27)
 ### Feature
 * Extends return types of get and set, cleans up trapdoor module ([`6649e51`](https://github.com/claymcleod/trapdoor/commit/6649e5164361b8902268090c3b9800895babd581))
